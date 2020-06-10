@@ -27,7 +27,7 @@ h1 {
     width: 11px;
     height: 11px;
     position: absolute;
-    /* animation: eye 1s ease infinite */
+    z-index: 15;
 }
 
 .left-eye {
@@ -38,6 +38,25 @@ h1 {
 .right-eye {
     left: 100px;
     top: 30px;
+    transform: rotate(180deg);
+}
+
+.blush {
+    background: url(dragon-images/blush.png) no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 9px;
+    position: absolute;
+}
+
+.left-blush {
+    left: 36px;
+    top: 35px;
+}
+
+.right-blush {
+    left: 101px;
+    top: 35px;
     transform: rotate(180deg);
 }
 
