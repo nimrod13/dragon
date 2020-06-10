@@ -1,3 +1,23 @@
+html {
+    height: 100%;
+}
+
+h1 {
+    color: #666;
+    position: absolute;
+    top: 10px;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff6e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .body {
     background: url(dragon-images/body.png) no-repeat center center;
     background-size: contain;
@@ -7,16 +27,8 @@
     z-index: 1;
 }
 
-h1 {
-    color: #666;
-    text-align: center;
-}
-
 .dragon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 500px;
+    position: relative;
 }
 
 .mouth {
@@ -82,7 +94,6 @@ h1 {
     position: absolute;
     top: 50px;
     left: 60px;
-    z-index: 3;
     animation: fireUp 1s ease-in infinite;
 }
 
@@ -132,6 +143,42 @@ h1 {
     animation: swingRight 0.5s ease-in-out infinite alternate-reverse;
 }
 
+.shadow-wrapper {
+    position: absolute;
+    top: 110px;
+    width: 100%;
+}
+
+.shadow {
+    margin: 0 auto;
+    width: 110px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    z-index: 0;
+    animation: zoom .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
+}
+
+.progress {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.progress .outer {
+    width: 100%;
+    height: 14px;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.progress .inner {
+    width: 0;
+    height: 100%;
+    background: #ffcd33;
+    animation: loading 2s linear infinite;
+}
+
 @keyframes openMouth {
     0% {
         clip-path: ellipse(20% 0% at 50% 0)
@@ -160,27 +207,38 @@ h1 {
     }
 }
 
-@keyframes fire {
+@keyframes fireUp {
+    0% {
+        top: 70px;
+    }
 
+    20% {
+        top: 70px;
+    }
+
+    100% {
+        top: -80px;
+    }
+}
+
+@keyframes fire {
     0% {
         transform: scale(0, 0);
+        opacity: 0.8;
+    }
+
+    20% {
+        transform: scale(0, 0);
+        opacity: 0.8;
+    }
+
+    50% {
         opacity: 0.8;
     }
 
     100% {
         transform: scale(1, 1);
         opacity: 0;
-    }
-}
-
-@keyframes fireUp {
-
-    0% {
-        top: 50px;
-    }
-
-    100% {
-        top: -50px;
     }
 }
 
@@ -225,5 +283,11 @@ h1 {
 
     100% {
         transform: scale(1.1, 1.1);
+    }
+}
+
+@keyframes loading {
+    100% {
+        width: 100%;
     }
 }
