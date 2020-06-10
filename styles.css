@@ -4,10 +4,19 @@
     width: 100%;
     height: 128px;
     position: absolute;
+    z-index: 1;
 }
 
 h1 {
     color: #666;
+    text-align: center;
+}
+
+.dragon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
 }
 
 .mouth {
@@ -18,7 +27,8 @@ h1 {
     position: absolute;
     left: 38px;
     top: 50px;
-    animation: openMouth 1s ease infinite
+    z-index: 2;
+    animation: openMouth 1s ease infinite;
 }
 
 .eye {
@@ -47,6 +57,7 @@ h1 {
     width: 15px;
     height: 9px;
     position: absolute;
+    animation: blush 1s ease infinite alternate;
 }
 
 .left-blush {
@@ -64,6 +75,61 @@ h1 {
     width: 200px;
     height: 140px;
     position: relative;
+    animation: zoom 0.5s ease-in-out infinite alternate;
+}
+
+.fire-container {
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    z-index: 3;
+    animation: fireUp 1s ease-in infinite;
+}
+
+.fire {
+    background: url(dragon-images/fire.png) no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 60px;
+    animation: fire 1s ease-out infinite;
+}
+
+.tail {
+    background: url(dragon-images/tail-sting.png) no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 38px;
+    position: absolute;
+    left: 128px;
+    top: 67px;
+    z-index: 0;
+    animation: tailGrow 0.5s ease-in-out infinite alternate;
+}
+
+.left-horn {
+    background: url(dragon-images/horn-left.png) no-repeat;
+    background-size: contain;
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    left: 10px;
+    top: -8px;
+    transform: rotate(-5deg);
+    transform-origin: 130% 180%;
+    animation: swingRight 0.5s ease-in-out infinite alternate;
+}
+
+.right-horn {
+    background: url(dragon-images/horn-right.png) no-repeat;
+    background-size: contain;
+    width: 34px;
+    height: 31px;
+    position: absolute;
+    left: 110px;
+    top: -8px;
+    transform: rotate(5deg);
+    transform-origin: -30% 180%;
+    animation: swingRight 0.5s ease-in-out infinite alternate-reverse;
 }
 
 @keyframes openMouth {
@@ -81,5 +147,83 @@ h1 {
 
     100% {
         clip-path: ellipse(20% 0% at 50% 0)
+    }
+}
+
+@keyframes blush {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
+    }
+}
+
+@keyframes fire {
+
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+@keyframes fireUp {
+
+    0% {
+        top: 50px;
+    }
+
+    100% {
+        top: -50px;
+    }
+}
+
+@keyframes tailGrow {
+
+    0% {
+        transform: scaleY(0.9);
+    }
+
+    100% {
+        transform: scaleY(1.1);
+    }
+}
+
+@keyframes swingLeft {
+
+    0% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes swingRight {
+
+    0% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes zoom {
+
+    0% {
+        transform: scale(1, 1);
+    }
+
+    100% {
+        transform: scale(1.1, 1.1);
     }
 }
